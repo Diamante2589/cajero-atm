@@ -98,7 +98,6 @@ header{
 }
 
 
-
 #login input {
     font-family: 'Overpass', sans-serif;
     font-size: 110%;
@@ -106,8 +105,7 @@ header{
     height: 40px;
     margin-bottom: 10px;
     border-radius: 3px;
-    
-    
+        
 }
 
 #login input::placeholder {
@@ -128,10 +126,12 @@ header{
     font-weight: bold; 
 }
 
-#login button:hover {
+
+#login .button-click:hover {
    
-    color:black;
-    background-color: #ffff;
+    color:#ffff;
+    background-color:rgb(9, 172, 172);
+    cursor: pointer;
 }
 
 #derecho {
@@ -183,7 +183,7 @@ hr {
         min-width: 380px;
         max-width: 900px;
         width: 90%;
-         padding: 30px;
+        padding: 30px;
         box-sizing: border-box;
      
     }
@@ -246,11 +246,10 @@ hr {
 }
 
 input[type]{
-    margin-left: 30px;
     width:90%;
     height: 30px;
-    border-radius: 5px;
-    border: none;
+    border:#ffff;
+
 }
 
 
@@ -282,6 +281,7 @@ input[type]{
     border-radius: 15px;
     color: #DE1F21;
 }
+
 
 
 

@@ -14,7 +14,7 @@ const accounts = [
     {  name: "Fernando", balance: 230, password: 'Colombia189' },
     {  name: "Pedro", balance: 800, password: 'Bogo-ta63' },
     {  name: "Sandra", balance: 900, password: 'Neo' },
-    {  name: "Mariana", balance: 16, password: 'Nebeerpa' },
+    {  name: "Mariana", balance: 16, password: 'Neberpa' },
     {  name: "Valentina", balance: 420, password: 'Amarillo56' },
     {  name: "Johan", balance: 63, password: 'Victoria2023' }
     
@@ -47,8 +47,8 @@ function valideUserLogin (user, contra) {
     }
 
     if(!userValidate) {
-      document.getElementById("incorrect_user").style.display= "block";//me permite que aparezca y color color blanco  en caso de
-                                                                       // la clave este incorrecta        
+      document.getElementById("incorrect_user").style.display= "block";
+      //me permite que aparezca y color color blanco  en caso de la clave este incorrecta        
       document.getElementById("incorrect_user").style.color = "white";
     }
      // console.log(usuarioValido);
@@ -88,6 +88,8 @@ function deposit() {
   document.getElementById("info").innerText =  `${accounts[state].name} Tu saldo actual es de $ ${total2} mas las consignacion de  $ ${depositmoneys}`;
 }
 }
+
+
 /*
 function actualizarSaldo(){
   const actualSaldo=saldototal1;
