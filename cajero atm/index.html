@@ -1,0 +1,167 @@
+<!-- Define que el documento esta bajo el estandar de HTML 5 -->
+<!doctype html>
+
+<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
+<html lang="es">
+    
+    <head>
+        
+        <meta charset="utf-8">
+        
+        <title>Cajero Atm</title>    
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Videojuegos & Desarrollo">
+        <meta name="description" content="Ejemplo de formulario de acceso basado en HTML5 y CSS">
+        <meta name="keywords" content="login,formulariode acceso html">
+        
+        <!--<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">--> 
+        
+        <!-- Link hacia el archivo de estilos css -->
+        <link rel="stylesheet" href="styles.css">
+        
+        <style type="text/css"></style>
+        
+       
+        
+    </head>
+    
+    <body>
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <p>BANK AMERICA</p>
+                </div>
+                <nav class="navigation">
+                    <ul class="menu">
+                        <li class="menu-principal"><a href="#">Inicio</a></li>
+                        <li class="menu-principal"><a href="#">Nosotros</a></li>
+                        <li class="menu-principal"><a href="#">Portafolio</a></li>
+                        <li class="menu-principal"><a href="index.html">Oficina virtual</li>
+                        <li class="menu-principal"><a href="#">Contactenos</a></li>
+                        
+                    </ul>
+    
+                </nav>
+    
+    
+            </div>
+    
+        </header>
+
+
+        <div id="contenedor">
+            
+            <div id="contenedorcentrado">
+                <div id="login">
+                    <main class="loginform" id="loginform">
+                        <label for="usuario">Usuario</label>
+                        <input id="usuario" type="text" name="usuario" placeholder="Ingrese su Usuario">
+                        
+                        <label for="password">Contraseña</label>
+                        <input id="password" type="password" placeholder="Ingrese su Contraseña" name="password">
+                        
+                        <button onclick="enter()">Ingresar</button>
+
+                    </main>
+                    <main class="incorrect_user" id="incorrect_user">
+                       
+                            <strong class="text">El usuario o  la  contraseña son incorrectas</strong>
+                    
+                    </main>
+                    <main class="correct_user" id="correct_user">
+                      
+                            <strong class=" text">Validacion exitosa</strong>
+                   
+                    </main>
+
+                    <h2 id="nombre-usuario"></span></h2>
+                    
+                </div>
+                <div id="derecho">
+                    <div class="titulo">
+                        Ingresa a tu banca virtual
+                    </div>
+                    <hr>
+                    <div class="pie-form">
+                        <a href="#">¿Perdiste tu contraseña?</a>
+                        <a href="#">¿No tienes Cuenta? Registrate</a>
+                        <hr>
+                        <a href="#">« Volver</a>
+                    </div>
+                
+    
+                </div>
+            </div>
+        </div>
+        <!--comentarios -->
+        <div class="cuadros" id="cards">
+                           <!--<h1><span id="info" class="badge bg-secondary">Selecciona una opción</span></h1>   -->
+                        <div class="containers-card">       
+                            <div class="cards-p">
+                                <div class="card-body">
+                                    <img  class="img1" src="img/retir.jpg"alt="imagen1">
+                                    <h5 class="card-title">CONSULTAR SALDO</h5>
+                                    <p class="card-text"><strong><span id="nombre-usuario"></span></strong>Si seleccionas esta opcion podras saber cuanto tiene actualmente en tu cuenta</p>
+                                </div>
+                                <div class="button-card">
+                                     <button  id="consultar">Consultar</button>
+                                </div>
+                               
+                                
+                            </div>
+                       
+
+                             <div class="cards-p">
+                                <div class="card-body">
+                                    <img  class="img2" src="img/consig.jpg"alt="imagen1">
+                                    <h5 class="card-title">CONSIGNAR</h5>
+                                    <p class="card-text"><strong><span id="nombre-usuario"></span></strong>al depositar dinero , podras tenerlo seguro y podras hacer uso de el a traves de tu tarjeta fisica.</p>
+                                    <input type="text" id="depositmoneys" placeholder="Introduce la cantidad a depositar">
+                                </div>
+                                <div class="button-card">
+                                    <button onclick="deposit()">Depositar</button>
+                                </div>
+                               
+                            </div>
+                        
+
+                        
+                            <div class="cards-p">
+                                <div class="card-body">
+                                    <img  class="img3" src="img/otro ret.jpg"alt="imagen1">
+                                    <h5 class="card-title">RETIRAR</h5>
+                                    <p class="card-text"><strong><span id="nombre-usuario"></span></strong>Al seleccionar esta seccion tendras efectivo en tus manos descontandolo del total que tengas en tu cuenta.</p>
+                                    <input type="text" id="withdrawmoneys" placeholder="Introduce la cantidad a retirar">
+                                </div>
+                                <div class="button-card">
+                                    <button onclick="withdraw()" >Retirar</button>
+                                </div>
+                                
+                            </div>
+                                  
+                        </div> 
+
+                        <div class="information" >  
+                            <div class="cards-information">
+                                <div class="card-bod-information">
+                                    <h1><span id="info">Selecciona una opción</span></h1> 
+                                </div>
+                                
+                            </div>
+                        </div>  
+
+                     
+
+               
+        </div>
+
+
+
+        <script type="text/javascript" src="main.js">
+        
+        </script>
+        
+    </body>
+</html>
