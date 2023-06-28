@@ -108,6 +108,11 @@ header{
         
 }
 
+#depositmoneys , #withdrawmoneys{
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
 #login input::placeholder {
     font-family: 'Overpass', sans-serif;
     color: #E4E4E4;

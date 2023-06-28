@@ -70,31 +70,25 @@ function showMenuHTML(state){
 //funcion para retirar
 function withdraw(){
   const withdrawmoneys = document.getElementById("withdrawmoneys").value;//guarda en variable  la info del input
-  const total1  = accounts[state].balance - withdrawmoneys; //trae el saldo de arreglo y resta el valor guardado en variable
+  const total1  = accounts[state].balance - withdrawmoneys //trae el saldo de arreglo y resta el valor guardado en variable
+  
   if( total1 < 10){
   document.getElementById("info").innerText =  'El valor a retirar es superior al monto permitido, recuerde que su  saldo no puede ser inferior a  $ 10'; 
   }else{
-      document.getElementById("info").innerText = `${accounts[state].name} Tu saldo actual es de $ ${total1} descontando el retiro de $ ${withdrawmoneys}`;
+      document.getElementById("info").innerText = `${accounts[state].name} Tu saldo actual es de $ ${total1} `;
   }
 }
 
 //funcion para consignar
 function deposit() {
+
   const depositmoneys = document.getElementById("depositmoneys").value;//guarda en variable  la info del input
   const total2  = Number(accounts[state].balance) + Number(depositmoneys);//trae el saldo de arreglo y resta el valor guardado en variable
+
   if(total2 > 990){
   document.getElementById("info").innerText = 'Ingresa un valor nuevamente , recuerde que su saldo total no debe superar los $ 990  ' ;
 }else{
-  document.getElementById("info").innerText =  `${accounts[state].name} Tu saldo actual es de $ ${total2} mas las consignacion de  $ ${depositmoneys}`;
+  document.getElementById("info").innerText =  `${accounts[state].name} Tu saldo actual es de $ ${total2} `;
 }
 }
-
-
-/*
-function actualizarSaldo(){
-  const actualSaldo=saldototal1;
-}
-
-actualizarSaldo()
-*/
 
