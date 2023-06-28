@@ -180,7 +180,7 @@ hr {
 .pie-form a:hover {
     color: #719192;
 }
-
+/* media query*/
 @media all and (max-width: 775px)
 {
     #contenedorcentrado {
