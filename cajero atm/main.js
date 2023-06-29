@@ -35,13 +35,14 @@ const accounts = [
     valideUserLogin(user, password);
 }
 //esta funcion es para validar el usuario
-function valideUserLogin (user, contra) {
+function valideUserLogin (user, key) {
     let userValidate = false;
-    for(let x in accounts){
-     if(user === accounts[x].name && contra === accounts[x].password) {//condicional que me perimite verificar si el user y password es correcto
+      for(let x in accounts){
+      //for(let x=0, x < accounts.length , x++);
+     if(user === accounts[x].name && key === accounts[x].password) {//condicional que me permite verificar si el user y password es correcto
             userValidate = true;
             showMenuHTML(x)//me muestra  el bloque principal(informacion)
-            state = x;
+            control= x;
             return
         }
     }
@@ -55,14 +56,14 @@ function valideUserLogin (user, contra) {
 }
 
  //Esta funcion me permite que aparezca el bloque principal  y desaparezca el bloque de validacion 
-function showMenuHTML(state){
+function showMenuHTML(control){
   
-    document.getElementById("contenedor").style.display = "none";//antes inicio
-    document.getElementById("cards").style.display = "block";//antes acciones
+    document.getElementById("contenedor").style.display = "none";
+    document.getElementById("cards").style.display = "block";
     document.getElementById("info").style.display = "block";
-    document.getElementById("nombre-usuario").innerText = accounts[state].name;
+    document.getElementById("nombre-usuario").innerText = accounts[control].name;
     document.getElementById("consultar").addEventListener('click', function () {
-    document.getElementById("info").innerText = `${accounts[state].name} tu saldo actual es de  ${accounts[state].balance}`;
+    document.getElementById("info").innerText = `${accounts[control].name} tu saldo actual es de  ${accounts[control].balance}`;
     } );
 
 
@@ -70,12 +71,12 @@ function showMenuHTML(state){
 //funcion para retirar
 function withdraw(){
   const withdrawmoneys = document.getElementById("withdrawmoneys").value;//guarda en variable  la info del input
-  const total1  = accounts[state].balance - withdrawmoneys //trae el saldo de arreglo y resta el valor guardado en variable
+  const total1  = accounts[control].balance - withdrawmoneys //trae el saldo de arreglo y resta el valor guardado en variable
   
   if( total1 < 10){
   document.getElementById("info").innerText =  'El valor a retirar es superior al monto permitido, recuerde que su  saldo no puede ser inferior a  $ 10'; 
   }else{
-      document.getElementById("info").innerText = `${accounts[state].name} Tu saldo actual es de $ ${total1} `;
+      document.getElementById("info").innerText = `${accounts[control].name} Tu saldo actual es de $ ${total1} `;
   }
 }
 
@@ -83,12 +84,13 @@ function withdraw(){
 function deposit() {
 
   const depositmoneys = document.getElementById("depositmoneys").value;//guarda en variable  la info del input
-  const total2  = Number(accounts[state].balance) + Number(depositmoneys);//trae el saldo de arreglo y resta el valor guardado en variable
+  const total2  = Number(accounts[control].balance) + Number(depositmoneys);//trae el saldo de arreglo y resta el valor guardado en variable
 
   if(total2 > 990){
   document.getElementById("info").innerText = 'Ingresa un valor nuevamente , recuerde que su saldo total no debe superar los $ 990  ' ;
 }else{
-  document.getElementById("info").innerText =  `${accounts[state].name} Tu saldo actual es de $ ${total2} `;
+  document.getElementById("info").innerText =  `${accounts[control].name} Tu saldo actual es de $ ${total2} `;
 }
 }
 
+//falta actualizar saldo
