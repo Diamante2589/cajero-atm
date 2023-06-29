@@ -109,11 +109,7 @@ header{
     margin-bottom: 10px;
     border-radius: 3px;  
     outline: none;
-
-
 }
- 
-
 
 #depositmoneys , #withdrawmoneys{
     margin-left: 20px;
@@ -301,18 +297,18 @@ input[type]{
     color:#ffff;
 }
 
-/*
-.car-bod-information{
+h1 ,h2{
+    font-size: 20px;
     text-align: center;
-    background-color: #8c8b8b;
-    width:90%;
-    height:150px;
-    margin-left: 50px;
-    border-radius: 15px;
-    color:#ffff;
+    padding: 1em;
+    margin: auto;
+    width:100%;  
+    
 }
 
-*/
+h2{
+    color:red;
+}
 
 
 

@@ -27,6 +27,7 @@ const accounts = [
   document.getElementById("incorrect_user").style.display = "none";
   document.getElementById("correct_user").style.display = "none";
   document.getElementById("info").style.display = "none";
+  document.getElementById("info1").style.display = "none";
   
 
   function enter() {//me permite validar ingresar a las tarjetas en caso de ser valida la clave
@@ -63,9 +64,10 @@ function showMenuHTML(control){
     document.getElementById("contenedor").style.display = "none";
     document.getElementById("cards").style.display = "block";
     document.getElementById("info").style.display = "block";
+    document.getElementById("info1").style.display = "block";
     document.getElementById("nombre-usuario").innerText = accounts[control].name;
     document.getElementById("consultar").addEventListener('click', function () {
-    document.getElementById("info").innerText = `${accounts[control].name} tu saldo actual es de  ${accounts[control].balance}`;
+    document.getElementById("info").innerText = `${accounts[control].name} el saldo en tu cuenta  es \n la suma de $${accounts[control].balance}`;
     } );
 
 
@@ -76,9 +78,9 @@ function withdraw(){
   const total1  = accounts[control].balance - withdrawmoneys //trae el saldo de arreglo y resta el valor guardado en variable
   
   if( total1 < 10){
-  document.getElementById("info").innerText =  'El valor a retirar es superior al monto permitido, recuerde que su  saldo no puede ser inferior a  $ 10'; 
+  document.getElementById("info").innerText =  'El valor a retirar es superior al monto permitido, \n recuerde que su  saldo no puede ser inferior a  $ 10'; 
   }else{
-      document.getElementById("info").innerText = `${accounts[control].name} Tu saldo actual es de $ ${total1} `;
+      document.getElementById("info").innerText = `${accounts[control].name} acabas de hacer un retiro de $ ${withdrawmoneys} \n Tu saldo actual es de $ ${total1} `;
   }
 }
 
@@ -86,12 +88,13 @@ function withdraw(){
 function deposit() {
 
   const depositmoneys = document.getElementById("depositmoneys").value;//guarda en variable  la info del input
-  const total2  = Number(accounts[control].balance) + Number(depositmoneys);//trae el saldo de arreglo y resta el valor guardado en variable
-
+  const total2  = Number(accounts[control].balance) + Number(depositmoneys);//trae el saldo de arregloy suma  el valor guardado en variable
+  const total3 =Number(990)-Number(accounts[control].balance);
   if(total2 > 990){
-  document.getElementById("info").innerText = 'Ingresa un valor nuevamente , recuerde que su saldo total no debe superar los $ 990  ' ;
+  document.getElementById("info").innerText = `Ingresa un valor nuevamente , recuerde que el valor a depositar \n no debe superior el maximo de saldo permitido que es $990` ;
+  document.getElementById("info1").innerText = `El valor maximo permitido a consignar es  ${total3} ` ;
 }else{
-  document.getElementById("info").innerText =  `${accounts[control].name} Tu saldo actual es de $ ${total2} `;
+  document.getElementById("info").innerText =  `${accounts[control].name} acabas de hacer una consignacion de $ ${depositmoneys} \n  Tu saldo actual es de $ ${total2} `;
 }
 }
 
