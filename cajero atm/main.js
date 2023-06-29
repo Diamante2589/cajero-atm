@@ -1,9 +1,7 @@
 
 //variables
-
-let state ;// me permite ocultar elementos, y solo aparecen si el usuario se valida y aparece  posicion usuario
-let  dinero;//crea un variable que se llama estado para controlar  la funcion en html
-let x; //control para el  for
+let x; //control para  iterar el for y ubicar la posicion
+let control;
 
 //creacion de arreglo para nombre, clave y saldos
 const accounts = [
@@ -20,14 +18,13 @@ const accounts = [
     
   ];
 
-  
-
+ 
   //bloque para  desaparecer  la  validacion de correo
   document.getElementById("cards").style.display = "none";
   document.getElementById("incorrect_user").style.display = "none";
   document.getElementById("correct_user").style.display = "none";
   document.getElementById("info").style.display = "none";
-  document.getElementById("info1").style.display = "none";
+
   
 
   function enter() {//me permite validar ingresar a las tarjetas en caso de ser valida la clave
@@ -41,7 +38,7 @@ const accounts = [
 function valideUserLogin (user, key) {
     let userValidate = false;
       for(let x in accounts){
-      //for(let x=0, x < accounts.length , x++);
+      //for(let x=0, x < accounts.length , x++); se cambia el for por un for in
      if(user === accounts[x].name && key === accounts[x].password) {//condicional que me permite verificar si el user y password es correcto
             userValidate = true;
             showMenuHTML(x)//me muestra  el bloque principal(informacion)
@@ -64,7 +61,6 @@ function showMenuHTML(control){
     document.getElementById("contenedor").style.display = "none";
     document.getElementById("cards").style.display = "block";
     document.getElementById("info").style.display = "block";
-    document.getElementById("info1").style.display = "block";
     document.getElementById("nombre-usuario").innerText = accounts[control].name;
     document.getElementById("consultar").addEventListener('click', function () {
     document.getElementById("info").innerText = `${accounts[control].name} el saldo en tu cuenta  es \n la suma de $${accounts[control].balance}`;
@@ -76,9 +72,10 @@ function showMenuHTML(control){
 function withdraw(){
   const withdrawmoneys = document.getElementById("withdrawmoneys").value;//guarda en variable  la info del input
   const total1  = accounts[control].balance - withdrawmoneys //trae el saldo de arreglo y resta el valor guardado en variable
-  
+  const total4 =Number(accounts[control].balance)- Number(10);//me informa el saldo que puedo retirar
   if( total1 < 10){
-  document.getElementById("info").innerText =  'El valor a retirar es superior al monto permitido, \n recuerde que su  saldo no puede ser inferior a  $ 10'; 
+  document.getElementById("info").innerText =  `El valor a retirar es superior al monto permitido, \n recuerde que su  saldo no puede ser inferior a  $ 10`; 
+  document.getElementById("info1").innerText =  `El valor maximo permitido a retirar es de ${total4}`; 
   }else{
       document.getElementById("info").innerText = `${accounts[control].name} acabas de hacer un retiro de $ ${withdrawmoneys} \n Tu saldo actual es de $ ${total1} `;
   }
@@ -93,9 +90,15 @@ function deposit() {
   if(total2 > 990){
   document.getElementById("info").innerText = `Ingresa un valor nuevamente , recuerde que el valor a depositar \n no debe superior el maximo de saldo permitido que es $990` ;
   document.getElementById("info1").innerText = `El valor maximo permitido a consignar es  ${total3} ` ;
+
 }else{
   document.getElementById("info").innerText =  `${accounts[control].name} acabas de hacer una consignacion de $ ${depositmoneys} \n  Tu saldo actual es de $ ${total2} `;
 }
 }
-
-//falta actualizar saldo
+/*
+function refresh(){
+  const refresh= document.getElementById("info1").addEventListenerEventListener('dblclick', function (){
+    document.getElementById("info1").innerText =style.display = "none";
+    }) 
+}
+*/
