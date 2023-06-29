@@ -20,6 +20,8 @@ const accounts = [
     
   ];
 
+  
+
   //bloque para  desaparecer  la  validacion de correo
   document.getElementById("cards").style.display = "none";
   document.getElementById("incorrect_user").style.display = "none";
@@ -42,7 +44,7 @@ function valideUserLogin (user, key) {
      if(user === accounts[x].name && key === accounts[x].password) {//condicional que me permite verificar si el user y password es correcto
             userValidate = true;
             showMenuHTML(x)//me muestra  el bloque principal(informacion)
-            control= x;
+            control= x;//me permite guardar en control el numero de arreglo escogido
             return
         }
     }
