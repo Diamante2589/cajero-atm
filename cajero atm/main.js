@@ -1,8 +1,4 @@
 
-//variables
-let x; //control para  iterar el for y ubicar la posicion
-let control;
-
 //creacion de arreglo para nombre, clave y saldos
 const accounts = [
     {  name: "Lucia", balance: 600, password: 'Millonarios560' },
@@ -21,8 +17,8 @@ const accounts = [
  
   //bloque para  desaparecer  la  validacion de correo
   document.getElementById("cards").style.display = "none";
-  document.getElementById("incorrect_user").style.display = "none";
-  document.getElementById("correct_user").style.display = "none";
+  document.getElementById("user-wrong").style.display = "none";
+  document.getElementById("user-ok").style.display = "none";
   document.getElementById("info").style.display = "none";
 
   
@@ -48,9 +44,9 @@ function valideUserLogin (user, key) {
     }
 
     if(!userValidate) {
-      document.getElementById("incorrect_user").style.display= "block";
+      document.getElementById("user-wrong").style.display= "block";
       //me permite que aparezca y color color blanco  en caso de la clave este incorrecta        
-      document.getElementById("incorrect_user").style.color = "white";
+      document.getElementById("user-wrong").style.color = "white";
     }
      // console.log(usuarioValido);
 }
@@ -61,12 +57,12 @@ function showMenuHTML(control){
     document.getElementById("contenedor").style.display = "none";
     document.getElementById("cards").style.display = "block";
     document.getElementById("info").style.display = "block";
-    document.getElementById("nombre-usuario").innerText = accounts[control].name;
+    document.getElementById("user-name").innerText = accounts[control].name;
     document.getElementById("consultar").addEventListener('click', function () {
     document.getElementById("info").innerText = `${accounts[control].name} el saldo en tu cuenta  es \n la suma de $${accounts[control].balance}`;
     } );
 
-
+//crear variable info-************
 }
 //funcion para retirar
 function withdraw(){
@@ -95,6 +91,7 @@ function deposit() {
   document.getElementById("info").innerText =  `${accounts[control].name} acabas de hacer una consignacion de $ ${depositmoneys} \n  Tu saldo actual es de $ ${total2} `;
 }
 }
+
 /*
 function refresh(){
   const refresh= document.getElementById("info1").addEventListenerEventListener('dblclick', function (){
@@ -102,3 +99,4 @@ function refresh(){
     }) 
 }
 */
+
